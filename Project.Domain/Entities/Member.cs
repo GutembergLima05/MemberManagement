@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Project.Domain.Entities;
@@ -22,6 +23,7 @@ public sealed class Member : Entity
 
     public Member() { }
 
+    [JsonConstructor]
     public Member(int id, string firstname, string lastname, string gender, string email, bool? active)
     {
         DomainValidation.When(id < 0, "Invalid Id value.");
